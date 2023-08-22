@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.tallertriqui.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +20,13 @@ class MainActivity : AppCompatActivity() {
         binding.LanguageSpinner.adapter = adapter
 
         binding.TicButton.setOnClickListener{
-            startActivity(Intent(baseContext, TicTacToeActivity::class.java))
+            startActivity((Intent(baseContext, TicTacToeActivity::class.java)))
+        }
+
+        binding.greetButton.setOnClickListener{
+            val intent = Intent(this, GreetActivity::class.java)
+            intent.putExtra("language", binding.LanguageSpinner.selectedItem.toString())
+            startActivity(intent)
         }
 
         binding.countriesButton.setOnClickListener{

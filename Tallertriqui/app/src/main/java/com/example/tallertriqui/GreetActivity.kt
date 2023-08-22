@@ -11,7 +11,14 @@ class GreetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGreetBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.saludo.text = intent.getStringExtra("language")
+        when(intent.getStringExtra("language")){
+            "Español" -> binding.saludo.text = "Buenas buenas"
+            "Inglés" -> binding.saludo.text = "'sup, how's it going?"
+            "Francés" -> binding.saludo.text = "Bonjour, comment allez-vous?"
+            "Italiano" -> binding.saludo.text = "Ciao, come stai?"
+            "Portugués" -> binding.saludo.text = "Como você está garoto?"
+        }
 
     }
 }
