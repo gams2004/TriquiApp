@@ -28,7 +28,7 @@ class ListActivity : AppCompatActivity() {
         }
         var json = JSONObject(json_string);
         var paisesJsonArray = json.getJSONArray("paises");
-        for (i in 0..paisesJsonArray.length() - 1) {
+        for (i in 0 until paisesJsonArray.length()) {
             val jsonObject = paisesJsonArray.getJSONObject(i)
             val capital = jsonObject.getString("capital")
             val name = jsonObject.getString("nombre_pais")
